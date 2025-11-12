@@ -5,7 +5,8 @@ public class ComputingProcess extends Processo {
     private int operando_2;
     private char operador;
 
-    public void setExpressao(String expressao){ //Precisa adicionar validação para não causar erro se não for exatamento "1 + 1"
+    private void setExpressao(String expressao){ //Precisa adicionar validação para não causar erro se não for exatamento "1 + 1"
+           
         this.expressao = expressao.split(" ");
         this.operando_1 = Integer.parseInt(this.expressao[0]);
         this.operador = this.expressao[1].trim().charAt(0);
@@ -19,6 +20,7 @@ public class ComputingProcess extends Processo {
 
     @Override
     public void execute(){
+        System.out.println("Executando: " + this.operando_1 + ' ' + this.operador + ' ' + this.operando_2);
         switch (this.operador){
             case '+':
                 System.out.println(this.operando_1 + this.operando_2);

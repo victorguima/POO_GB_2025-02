@@ -11,21 +11,22 @@ import java.util.Scanner;
 
 public class App {
 
-    private static void CriaProcesso(ArrayList<Processo> processos){
-        Scanner scanner = new Scanner(System.in);
+    private static void CriaProcesso(ArrayList<Processo> processos, Scanner scanner){
         System.out.println("Escolha o tipo de processo:");
         System.out.println("Operações suportadas: +, -, *, /");
         System.out.println("A expressão deve ser no formato: operando1 operador operando2 (ex: 3 + 4)");
         System.out.println("1 - Processo de Cálculo (ComputingProcess)");
         System.out.println("2 - Processo de Escrita (WritingProcess)");
         System.out.println("3 - Processo de Leitura (ReadingProcess)");
-        System.out.println("4 - Processo de Escrita (PrintingProcess)");
+        System.out.println("4 - Processo de Impressão (PrintingProcess)");
         System.out.printf("Digite o número da opção: ");
         int processType = scanner.nextInt();
         scanner.nextLine(); // Consumir a quebra de linha
-        do{
+        //do{
+            
             switch(processType){
                 case 1:
+                    System.out.println("Insira a expressão:");
                     String expressao = scanner.nextLine();
                     processos.add(new ComputingProcess(expressao));
                     break;
@@ -44,8 +45,7 @@ public class App {
                 default:
                     System.out.println("Tipo de processo inválido.");
             }
-        } while(processType != 0);
-        scanner.close();
+        //} while(processType != 0);
     }
     public static void main(String[] args) throws Exception {
         System.out.println("");
@@ -53,6 +53,8 @@ public class App {
 
         processos.add(new ComputingProcess("10 + 5"));
         processos.add(new ComputingProcess("20 - 4"));
+        processos.add(new ComputingProcess("10 * 10"));
+        processos.add(new ComputingProcess("50 / 10"));
         processos.get(0).execute();
         processos.get(1).execute();
 
@@ -73,7 +75,7 @@ public class App {
             scanner.nextLine(); // Consumir a quebra de linha
             switch(menuOption){
                 case 1:
-                    CriaProcesso(processos);
+                    CriaProcesso(processos, scanner);
                     break;
                 case 2:
                     if(!processos.isEmpty()){
