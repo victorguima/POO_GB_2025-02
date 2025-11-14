@@ -25,4 +25,9 @@ public class WritingProcess extends ComputingProcess {
             System.out.println("Erro ao gravar no arquivo: " + e.getMessage());
         }
     }
+
+    @Override
+    public String toString(){
+        return "WritingProcess PID: "+ this.getPid() + " Expressão: " + this.expressaoOriginal;
+    }
 }

@@ -40,4 +40,9 @@ public class ReadingProcess extends Processo {
             System.out.println("PID " + getPid() + ": Erro ao ler o arquivo: " + e.getMessage());
         }
     }
+
+    @Override
+    public String toString(){
+        return "ReadingProcess PID: "+ this.getPid() + " Processos na fila: " + this.processos.size();
+    }
 }

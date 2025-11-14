@@ -43,7 +43,8 @@ public class App {
                     processos.add(new ReadingProcess(processos));
                     break;
                 case 4:
-                    processos.add(new PrintingProcess());
+                    processos.add(new PrintingProcess(processos));
+                    System.out.println("Processo de impressão adicionado com sucesso!:");
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");

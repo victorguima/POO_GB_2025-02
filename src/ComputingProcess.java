@@ -41,8 +41,11 @@ public class ComputingProcess extends Processo {
             default:
                 System.out.println("Erro: Operador invalido");
         }
-        
+    }
 
+    @Override
+    public String toString(){
+        return "ComputingProcess PID: "+ this.getPid() + " Expressão: " + this.operando_1 + " " + this.operador + " " + this.operando_2;
     }
     
 }
