@@ -1,0 +1,8 @@
+WritingProcess;60 + 60
+ReadingProcess;
+PrintingProcess;
+ComputingProcess;10 + 10
+ComputingProcess;20 + 20
+WritingProcess;60 + 60
+ReadingProcess;
+PrintingProcess;

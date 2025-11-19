@@ -13,5 +13,9 @@ public abstract class Processo {
 
     
     public abstract void execute();
+
+    public String write_toFile(){
+        return this.getClass().getSimpleName() + ";";
+    }
     
 }

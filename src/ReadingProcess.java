@@ -45,4 +45,6 @@ public class ReadingProcess extends Processo {
     public String toString(){
         return "ReadingProcess PID: "+ this.getPid() + " Processos na fila: " + this.processos.size();
     }
+
+    
 }

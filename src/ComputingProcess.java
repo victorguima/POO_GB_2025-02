@@ -46,6 +46,11 @@ public class ComputingProcess extends Processo {
     @Override
     public String toString(){
         return "ComputingProcess PID: "+ this.getPid() + " Expressão: " + this.operando_1 + " " + this.operador + " " + this.operando_2;
+    }  
+
+    @Override
+    public String write_toFile(){
+        return this.getClass().getSimpleName() + ";" + this.operando_1 + " " + this.operador + " " + this.operando_2;
     }
     
 }

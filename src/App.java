@@ -6,6 +6,7 @@
  * Felipe Dias
  */
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -103,12 +104,53 @@ public class App {
                     }
                     break;
                 case 4:
-                    // Implementar salvamento da fila de processos
-                    System.out.println("Funcionalidade não implementada.");
+                    File arqFila = new File("fila_processos.txt");
+                    if(arqFila.exists()){
+                        arqFila.delete();
+                    }
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(arqFila));
+                    if(processos.isEmpty()){
+                        System.out.println("Nenhum processo na fila para salvar.");
+                    } else {
+                        for(Processo p : processos){
+                            writer.write(p.write_toFile());
+                            writer.newLine();
+                        }
+                        System.out.println("Fila de processos salva com sucesso em fila_processos.txt");
+                    }
+                    writer.close();
                     break;
                 case 5:
-                    // Implementar carregamento da fila de processos
-                    System.out.println("Funcionalidade não implementada.");
+                    File arqLeitura = new File("fila_processos.txt");
+                    if(!arqLeitura.exists()){
+                        System.out.println("Arquivo fila_processos.txt não encontrado.");
+                        break;
+                    }
+                    BufferedReader reader = new BufferedReader(new FileReader(arqLeitura));
+                    String linha;
+                    while((linha = reader.readLine()) != null){
+                        String[] partes = linha.split(";", 2);
+                        String tipoProcesso = partes[0];
+                        String expressao = partes.length > 1 ? partes[1] : "";
+                        switch(tipoProcesso){
+                            case "ComputingProcess":
+                                processos.add(new ComputingProcess(expressao));
+                                break;
+                            case "WritingProcess":
+                                processos.add(new WritingProcess(expressao));
+                                break;
+                            case "ReadingProcess":
+                                processos.add(new ReadingProcess(processos));
+                                break;
+                            case "PrintingProcess":
+                                processos.add(new PrintingProcess(processos));
+                                break;
+                            default:
+                                System.out.println("Tipo de processo desconhecido no arquivo: " + tipoProcesso);
+                        }
+                    }
+                    reader.close();
+                    System.out.println("Fila de processos carregada com sucesso de fila_processos.txt");
                     break;
                 case 0:
                     System.out.println("Saindo...");
