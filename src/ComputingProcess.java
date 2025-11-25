@@ -1,12 +1,10 @@
 public class ComputingProcess extends Processo {
-
     private String[] expressao;
     private int operando_1;
     private int operando_2;
     private char operador;
 
-    private void setExpressao(String expressao){ //Precisa adicionar validação para não causar erro se não for exatamento "1 + 1"
-           
+    private void setExpressao(String expressao){
         this.expressao = expressao.split(" ");
         this.operando_1 = Integer.parseInt(this.expressao[0]);
         this.operador = this.expressao[1].trim().charAt(0);
@@ -52,5 +50,4 @@ public class ComputingProcess extends Processo {
     public String write_toFile(){
         return this.getClass().getSimpleName() + ";" + this.operando_1 + " " + this.operador + " " + this.operando_2;
     }
-    
 }

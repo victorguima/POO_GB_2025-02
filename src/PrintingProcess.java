@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-
 public class PrintingProcess extends Processo {
-
+    
     private ArrayList<Processo> processos;
-
+    
     public PrintingProcess(ArrayList<Processo> processos){
         super();
         this.processos = processos;

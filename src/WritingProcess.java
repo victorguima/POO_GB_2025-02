@@ -1,11 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 public class WritingProcess extends ComputingProcess {
-
     private String expressaoOriginal;
-
+    
     public WritingProcess(String expressao){
         super(expressao);
         this.expressaoOriginal = expressao;
