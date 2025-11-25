@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-
 public class ReadingProcess extends Processo {
 
     private ArrayList<Processo> processos;
@@ -31,13 +30,19 @@ public class ReadingProcess extends Processo {
                     count++;
                 }
             }
-
-            new PrintWriter(file).close();
-
+            FileWriter fw = new FileWriter(file, false); // false para sobrescrever o arquivo
+            fw.close();
+            br.close();
             System.out.println("PID " + getPid() + ": Leitura concluída. " + count + " processos adicionados à fila.");
 
         } catch (IOException e) {
             System.out.println("PID " + getPid() + ": Erro ao ler o arquivo: " + e.getMessage());
         }
+        
+    }
+
+    @Override
+    public String toString(){
+        return "ReadingProcess PID: "+ this.getPid() + " Processos na fila: " + this.processos.size();
     }
 }

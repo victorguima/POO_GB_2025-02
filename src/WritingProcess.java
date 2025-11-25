@@ -1,11 +1,9 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 public class WritingProcess extends ComputingProcess {
-
     private String expressaoOriginal;
-
+    
     public WritingProcess(String expressao){
         super(expressao);
         this.expressaoOriginal = expressao;
@@ -24,5 +22,10 @@ public class WritingProcess extends ComputingProcess {
         } catch (IOException e) {
             System.out.println("Erro ao gravar no arquivo: " + e.getMessage());
         }
+    }
+
+    @Override
+    public String toString(){
+        return "WritingProcess PID: "+ this.getPid() + " Expressão: " + this.expressaoOriginal;
     }
 }
